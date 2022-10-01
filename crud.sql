@@ -19,13 +19,16 @@ VALUES
 INSERT INTO 
 	produtos_pedidos (pedido_id, produto_id)
 VALUES 
-	((SELECT id FROM clientes WHERE nome ILIKE 'Geor%'),(SELECT produtos.id FROM produtos WHERE produtos.nome ILIKE 'big%')),
-	((SELECT id FROM clientes WHERE nome ILIKE 'Geor%'),(SELECT produtos.id FROM produtos WHERE produtos.nome ILIKE 'VAR%')),
-	((SELECT id FROM clientes WHERE nome ILIKE 'Geor%'),(SELECT produtos.id FROM produtos WHERE produtos.nome ILIKE 'FRIT%')),
-	((SELECT id FROM clientes WHERE nome ILIKE 'Geor%'),(SELECT produtos.id FROM produtos WHERE produtos.nome ILIKE 'COC%')),
-	((SELECT id FROM clientes WHERE nome ILIKE 'Geor%'),(SELECT produtos.id FROM produtos WHERE produtos.nome ILIKE 'COCa%')); 
-
-SELECT * FROM produtos_pedidos WHERE pedido_id = (SELECT id FROM clientes WHERE nome ILIKE 'Geor%');
+	((SELECT id FROM pedidos WHERE cliente_id = (SELECT id FROM clientes WHERE nome = 'Georgia')),
+	(SELECT id FROM produtos WHERE nome ILIKE 'big%')),
+	((SELECT id FROM pedidos WHERE cliente_id = (SELECT id FROM clientes WHERE nome = 'Georgia')),
+	(SELECT id FROM produtos WHERE nome ILIKE 'VAR%')),
+	((SELECT id FROM pedidos WHERE cliente_id = (SELECT id FROM clientes WHERE nome = 'Georgia')),
+	(SELECT id FROM produtos WHERE nome ILIKE 'FrIT%')),
+	((SELECT id FROM pedidos WHERE cliente_id = (SELECT id FROM clientes WHERE nome = 'Georgia')),
+	(SELECT id FROM produtos WHERE nome ILIKE 'Coc%')),
+	((SELECT id FROM pedidos WHERE cliente_id = (SELECT id FROM clientes WHERE nome = 'Georgia')),
+	(SELECT id FROM produtos WHERE nome ILIKE 'COC%'));
 	
 -- Leitura
 
