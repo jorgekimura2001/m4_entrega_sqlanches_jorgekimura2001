@@ -21,7 +21,7 @@ JOIN clientes c ON p.cliente_id = c.id
 WHERE po.nome = 'Fritas';
 
 -- 4)
-SELECT SUM(po.preço) FROM produtos_pedidos pp 
+SELECT CAST (SUM(po.preço) AS NUMERIC) sum FROM produtos_pedidos pp 
 JOIN pedidos p ON p.id = pp.pedido_id 
 JOIN produtos po ON po.id = pp.produto_id 
 JOIN clientes c ON p.cliente_id = c.id 
